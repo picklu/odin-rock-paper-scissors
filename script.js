@@ -51,29 +51,32 @@ function playFiveRounds() {
     }
 }
 
-// Call the function to play five rounds
-playFiveRounds();
-// Game over message
-console.log("Game Over!");
-// Display the final score
-let score = [
-    { "Player": "Human", Score: humanScore },
-    { "Player": "Computer", Score: computerScore }
-];
-// Determine the overall winner
-if (humanScore > computerScore) {
-    console.log("Congratulations! You are the overall winner!");
+// Type playGame() to start the game
+console.log("Type `playGame()` and hit <enter> to start the game!");
+// Function to start the game
+function playGame() {
+    // Call the function to play five rounds
+    playFiveRounds();
+    // Game over message
+    console.log("\tGame Over!");
+    // Display the final score
+    let score = [
+        { "Player": "Human", Score: humanScore },
+        { "Player": "Computer", Score: computerScore }
+    ];
+    // Determine the overall winner
+    if (humanScore > computerScore) {
+        console.log("\tCongratulations! You are the overall winner!");
+    }
+    else if (humanScore < computerScore) {
+        console.log("\tComputer is the overall winner!");
+    }
+    else {
+        console.log("\tIt's a draw!");
+    }
+    // Display the final score
+    console.log("\tFinal Score:");
+    console.table(score);
+    // Thank the user for playing
+    console.log("Thank you for playing!");
 }
-else if (humanScore < computerScore) {
-    console.log("Computer is the overall winner!");
-}
-else {
-    console.log("It's a draw!");
-}
-// Display the final score
-console.log("\nFinal Score:");
-console.table(score);
-// Thank the user for playing
-console.log("Thank you for playing!");
-// Display the final score  
-// End the game
