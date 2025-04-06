@@ -51,8 +51,16 @@ function playFiveRounds() {
     }
 }
 
-// Type playGame() to start the game
-console.log("Type `playGame()` and hit <enter> to start the game!");
+// Display the instructions
+console.log("Instructions:");
+console.log("1. You will play against the computer.");
+console.log("2. Choose rock, paper, or scissors.");
+console.log("3. The computer will randomly choose one of the three options.");
+console.log("4. The winner is determined based on the rules of the game.");
+console.log("5. The game consists of five rounds.");
+console.log("6. The player with the most wins at the end of five rounds is the overall winner.");
+console.log("7. Type `playGame()` and hit <Enter> to start the game!");
+
 // Function to start the game
 function playGame() {
     // Call the function to play five rounds
