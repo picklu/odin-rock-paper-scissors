@@ -19,40 +19,61 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
+// Compare the choices and determine the winner
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
+        console.log("\tIt's a tie!");
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         humanScore++;
-        console.log("You win this round!");
+        console.log("\tYou win this round!");
     } else {
         computerScore++;
-        console.log("Computer wins this round!");
+        console.log("\tComputer wins this round!");
     }
 }
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
-console.log(`You chose: ${humanChoice}`);
-console.log(`Computer chose: ${computerChoice}`);
-playRound(humanChoice, computerChoice);
-// Display the current score
+// Main game loop
+// Function to play five rounds of the game
+function playFiveRounds() {
+    for (let round = 0; round < 5; round++) {
+        console.log(`\n==> Round ${round + 1}`);
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        console.log(`\tYou chose: ${humanChoice}`);
+        console.log(`\tComputer chose: ${computerChoice}`);
+        playRound(humanChoice, computerChoice);
+        console.log("\tCurrent Score:");
+        console.log(`\t\tHuman ${humanScore} <=> Computer ${computerScore}`);
+    }
+}
+
+// Call the function to play five rounds
+playFiveRounds();
+// Game over message
+console.log("Game Over!");
+// Display the final score
 let score = [
     { "Player": "Human", Score: humanScore },
     { "Player": "Computer", Score: computerScore }
 ];
-console.table(score);
-// Compare the choices and determine the winner
-// Main game loop
-// Compare the choices and determine the winner
-// Display the result
-// Ask the user if they want to play again
-// If the user chooses to play again, restart the game
-// If the user chooses not to play again, end the game
+// Determine the overall winner
+if (humanScore > computerScore) {
+    console.log("Congratulations! You are the overall winner!");
+}
+else if (humanScore < computerScore) {
+    console.log("Computer is the overall winner!");
+}
+else {
+    console.log("It's a draw!");
+}
 // Display the final score
+console.log("\nFinal Score:");
+console.table(score);
 // Thank the user for playing
+console.log("Thank you for playing!");
+// Display the final score  
 // End the game
