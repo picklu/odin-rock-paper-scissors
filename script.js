@@ -18,6 +18,34 @@ function getComputerChoice() {
     const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        console.log("It's a tie!");
+    } else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+        humanScore++;
+        console.log("You win this round!");
+    } else {
+        computerScore++;
+        console.log("Computer wins this round!");
+    }
+}
+
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+console.log(`You chose: ${humanChoice}`);
+console.log(`Computer chose: ${computerChoice}`);
+playRound(humanChoice, computerChoice);
+// Display the current score
+let score = [
+    { "Player": "Human", Score: humanScore },
+    { "Player": "Computer", Score: computerScore }
+];
+console.table(score);
 // Compare the choices and determine the winner
 // Main game loop
 // Compare the choices and determine the winner
